@@ -1,0 +1,713 @@
+\documentclass[11pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{colortbl}
+\usetikzlibrary{shadows.blur,positioning}
+\definecolor{medixPrimary}{RGB}{0,60,120}
+\definecolor{medixAccent}{RGB}{0,185,170}
+\definecolor{medixDark}{RGB}{15,20,30}
+\definecolor{medixLight}{RGB}{245,248,252}
+\setbeamercolor{background canvas}{bg=medixLight}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{author in head/foot}{bg=medixDark, fg=white}
+\setbeamercolor{date in head/foot}{bg=medixAccent, fg=white}
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=1.1cm,text margin right=0.7cm}
+\setbeamertemplate{frametitle}
+{
+    \vspace*{-0.12cm}
+    \begin{beamercolorbox}[
+        wd=\paperwidth,
+        ht=1.05cm,
+        dp=0ex
+    ]{frametitle}
+        \begin{tikzpicture}[remember picture,overlay]
+            \fill[medixPrimary]
+                (current page.north west)
+                rectangle
+                ([yshift=-1.05cm]current page.north east);
+            \fill[medixAccent]
+                ([xshift=-2.4cm]current page.north east)
+                --
+                (current page.north east)
+                --
+                ([yshift=-1.05cm]current page.north east)
+                -- cycle;
+            \draw[
+                white,
+                opacity=0.28,
+                line width=0.8pt
+            ]
+                ([yshift=-0.86cm]current page.north west)
+                --
+                ([yshift=-0.86cm]current page.north east);
+            \node[
+                anchor=west,
+                white,
+                font=\bfseries\Large
+            ]
+            at ([xshift=1cm,yshift=-0.52cm]current page.north west)
+            {\insertframetitle};
+        \end{tikzpicture}
+    \end{beamercolorbox}
+    \vspace{0.42cm}
+}
+\setbeamertemplate{footline}
+{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+            wd=.80\paperwidth,
+            ht=3.2ex,
+            dp=1.4ex,
+            left
+        ]{author in head/foot}
+            \hspace{0.5cm}
+            \small\textbf{MedixAI}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+            wd=.20\paperwidth,
+            ht=3.2ex,
+            dp=1.4ex,
+            right
+        ]{date in head/foot}
+            \small
+            \insertframenumber/\inserttotalframenumber
+            \hspace{0.45cm}
+        \end{beamercolorbox}
+    }
+}
+\setbeamertemplate{footline}
+{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+            wd=.80\paperwidth,
+            ht=3.2ex,
+            dp=1.4ex,
+            left
+        ]{author in head/foot}
+            \hspace{0.5cm}
+            \small\textbf{MedixAI}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+            wd=.20\paperwidth,
+            ht=3.2ex,
+            dp=1.4ex,
+            right
+        ]{date in head/foot}
+            \small
+            \insertframenumber/\inserttotalframenumber
+            \hspace{0.45cm}
+        \end{beamercolorbox}
+
+    }
+}
+\addtobeamertemplate{background}{}
+{
+    \begin{tikzpicture}[remember picture,overlay]
+    \fill[medixPrimary!5]
+        (current page.north west)
+        rectangle
+        ([xshift=0.55cm]current page.south west);
+    \draw[
+        medixAccent,
+        line width=1.6pt
+    ]
+    ([xshift=0.55cm]current page.north west)
+    --
+    ([xshift=0.55cm]current page.south west);
+    \end{tikzpicture}
+}
+
+\title{MediXAI}
+\subtitle{
+Multimodal AI for Prescription Analysis and Personalized Health Monitoring
+}
+\author{
+23201009 | Momin Ali Rifat \\[0.2cm]
+23201023 | Nazmuz Saif \\[0.2cm]
+23201033 | Tahsin Rahman Khan
+}
+\institute{
+Department of CSE \\
+University of Asia Pacific
+}
+
+
+\date{\today}
+\begin{document}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\fill[medixPrimary]
+(current page.south west)
+rectangle
+(current page.north east);
+\fill[white,opacity=0.04]
+([xshift=-3cm,yshift=1cm]current page.center)
+circle (4cm);
+\fill[medixAccent,opacity=0.08]
+([xshift=4cm,yshift=-2cm]current page.center)
+circle (3cm);
+\draw[
+medixAccent,
+line width=4pt
+]
+([xshift=1cm,yshift=-1.2cm]current page.north west)
+--
+([xshift=-1cm,yshift=-1.2cm]current page.north east);
+\end{tikzpicture}
+
+
+\vspace{1.5cm}
+\centering
+{\color{white}\fontsize{38}{40}\selectfont\bfseries
+MediXAI
+}
+
+\vspace{0.4cm}
+{\color{medixAccent}\fontsize{22}{24}\selectfont
+Multimodal AI for Prescription Analysis and Personalized Health Monitoring
+}
+
+
+\vspace{0.15cm}
+{\color{white}\large
+Department of Computer Science and Engineering
+}
+
+\vspace{0.08cm}
+{\color{white}\large
+University of Asia Pacific
+}
+
+\vspace{1cm}
+{\color{medixAccent}\large\bfseries Presented By}
+
+\vspace{0.20cm}
+{\color{white}\fontsize{12}{14}\selectfont
+\begin{tabular}{@{}l c l@{}}
+23201009 & | & Momin Ali Rifat \\
+23201023 & | & Nazmuz Saif \\
+23201050 & | & Tahsin Rahman Khan \\
+\end{tabular}
+}
+\end{frame}
+
+
+
+
+\begin{frame}{Presentation Outline}
+\tableofcontents
+\end{frame}
+
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+
+\textbf{MediXAI Overview}
+
+\vspace{0.3cm}
+
+MediXAI is a multimodal healthcare framework for:
+\begin{itemize}
+    \item Automated prescription image analysis (handwritten and image)
+    \item Personalized health monitoring using patient signals and records
+    \item Supporting clinical decision-making systems
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Why it matters?}
+\begin{itemize}
+    \item Prescription misinterpretation leads to medical risks
+    \item Existing systems lack multimodal integration
+    \item Demand for AI-based personalized healthcare is increasing
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Key Idea:}
+\begin{itemize}
+    \item Fusion of image, text, and patient data for intelligent healthcare prediction
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\section{Problem Statement}
+\begin{frame}{Problem Statement}
+
+\textbf{Major Problem}
+\begin{itemize}
+    \item Existing systems are single-modal (OCR / text / image only)
+    \item No unified multimodal healthcare system exists
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Key Limitations}
+\begin{itemize}
+    \item High error in real-world prescriptions
+    \item Poor performance on noisy / handwritten data
+    \item No real-time clinical deployment system
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Motivation}
+\begin{itemize}
+    \item Prescription misreading causes medication errors
+    \item Patients \& pharmacists often misunderstand handwritten notes
+    \item Need AI-based safe prescription interpretation system
+\end{itemize}
+
+\end{frame}
+
+
+\section{Objectives of the Review}
+\begin{frame}{Objectives of the Review}
+
+\begin{itemize}
+    \item \textbf{Model Comparison:} ML/DL, CNN, XAI, OCR, NLP Vision-Language models
+    
+    \item \textbf{Metrics:} Accuracy, Precision, Recall, F1-score, latency
+    
+    \item \textbf{Robustness:} Blur, noise, low-quality scans, handwriting variation, multilingual data
+    
+    \item \textbf{Limitations:} Data scarcity, weak validation, poor generalization, clean-data dependency
+    
+    \item \textbf{Explainability:} LIME, SHAP, Grad-CAM
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Research Gap:} Separate OCR-based prescription analysis and health monitoring systems; no unified end-to-end clinical AI framework.
+\end{frame}
+
+
+
+
+
+\section{Paper Selection Methodology}
+
+\begin{frame}{Paper Selection Methodology}
+
+\begin{itemize}
+    \item \textbf{Total Papers Reviewed:} 21 research papers
+    
+    \item \textbf{Sources:}
+    \begin{itemize}
+        \item IEEE Xplore
+        \item Google Scholar
+        \item Kaggle
+        \item ScienceDirect
+        \item ResearchGate
+    \end{itemize}
+    
+    \item \textbf{Publication Years:} 2020 -- 2026
+    
+    \item \textbf{Inclusion Criteria:}
+    \begin{itemize}
+        \item Medical OCR, prescription analysis, or healthcare AI related studies
+        \item ML, DL, multimodal AI, or XAI-based approaches
+    \end{itemize}
+    \item \textbf{Exclusion Criteria:}
+    \begin{itemize}
+        \item Non-medical domain papers
+        \item Non-AI based traditional rule-based systems
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\section{Literature Review}
+
+\begin{frame}{Literature Review}
+\small
+
+\centering
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabular}{|m{3.2cm}|m{5.2cm}|m{5cm}|}
+\hline
+
+\rowcolor{medixPrimary}
+\color{white}\textbf{Category} &
+\color{white}\textbf{Methods / Papers} &
+\color{white}\textbf{Key Findings}
+\\
+\hline
+
+OCR + NLP Pipeline  &
+OCR + NLP (ViT, BERT), error propagation analysis &
+Good extraction (71--84\% accuracy) \\
+\hline
+
+CNN + CRNN OCR Systems &
+CNN + BiLSTM + CTC loss &
+~70--82\% accuracy, affected by imbalance and handwriting variation \\
+\hline
+
+Hybrid OCR + NLP  &
+CNN-LSTM + Tesseract OCR + NLP &
+Around 92\% accuracy, but fails on low-quality images \\
+\hline
+
+Hybrid OCR Pipelines &
+ANN-based OCR, fax prescription dataset &
+CRR 94.5\%, but limited generalization \\
+\hline
+
+RAG + OCR Systems &
+OCR + NLP + RAG models &
+92\% accuracy, but needs human verification \\
+\hline
+
+YOLO + OCR &
+YOLO + OCR + Spell Correction &
+High ROI accuracy (99\%)\\
+\hline
+
+\end{tabular}
+
+\vspace{0.2cm}
+
+\textbf{Key Insight:}
+Most systems show good accuracy, but real-world clinical deployment is still limited due to data and validation issues.
+
+\end{frame}
+
+
+
+
+
+\section{Comparison Table}
+
+\begin{frame}{Comparative Analysis}
+\vspace{0.3cm}
+
+\scriptsize
+\centering
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabular}{|m{0.5cm}|m{3.2cm}|m{1.6cm}|m{3.2cm}|m{3.2cm}|}
+
+\hline
+
+\rowcolor{medixPrimary}
+\color{white}\textbf{P} &
+\color{white}\textbf{Method} &
+\color{white}\textbf{Accuracy} &
+\color{white}\textbf{Advantages} &
+\color{white}\textbf{Limitations}
+\\
+
+\hline
+
+P1 & OCR + NLP Pipeline & 71--84\% & Good system-level analysis of OCR errors & No real clinical dataset \\
+\hline
+
+P2 & CNN + CRNN OCR & 70--82\% & Works for basic handwritten recognition & Sensitive to imbalance and handwriting style \\
+\hline
+
+P3 & CNN-LSTM + Tesseract OCR & 92\% & Good medical entity extraction & Weak on poor-quality images \\
+\hline
+
+P4 & MIRAGE (LLaVA + Qwen-VL + CLIP) & 82\% extraction & Strong multimodal approach & Vision encoder bottleneck \\
+\hline
+
+P5 & OCR + NLP + RAG System & 92\% & Structured medical outputs & LLM hallucination issues \\
+\hline
+
+P6 & YOLO + OCR + Spell Correction & 96--99\% ROI & Very high detection accuracy & No full end-to-end evaluation \\
+\hline
+
+P7 & Donut (OCR-free Transformer) & 84--88\% & End-to-end document understanding & Limited dataset and validation \\
+\hline
+
+\end{tabular}
+
+\vspace{0.2cm}
+
+\textbf{Key Insight:} Most methods perform well on specific tasks, but real-world medical prescription understanding is still unreliable.
+
+\end{frame}
+
+
+
+
+
+\section{Research Trends}
+\begin{frame}{Research Trends and Observations}
+
+\footnotesize
+
+\textbf{Popular Methods}
+\begin{itemize}
+    \item CNN, CNN-LSTM, DONUT, YOLO
+    \item OCR + NLP, RAG, Multimodal AI
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Performance Trend}
+\begin{itemize}
+    \item CNN/RNN: 80--82\%
+    \item CNN-LSTM: $\sim$92\%
+    \item YOLO: 99.6\% (ROI)
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Key Observations}
+\begin{itemize}
+    \item Hybrid systems give better real-world performance
+    \item Multimodal models are improving understanding
+    \item XAI is used for trust and transparency
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Final Insight:}
+YOLO performs best for detection, while CNN-LSTM and hybrid OCR+NLP models are most practical for end-to-end medical document analysis.
+
+\end{frame}
+
+
+
+\section{Research Gaps}
+\begin{frame}{Research Gaps}
+\begin{itemize}
+
+\item \textbf{Data Limitation}  
+Small and synthetic datasets reduce generalization.
+
+\item \textbf{Deployment Gap}  
+Models are not tested in real clinical environments.
+
+\item \textbf{Noise Issue}  
+Performance drops on blurred and handwritten prescriptions.
+
+\item \textbf{Integration Gap}  
+No unified OCR, NLP, AI, validation system.
+
+\item \textbf{Clinical Validation}  
+Limited real hospital or pharmacy testing.
+
+\item \textbf{Interpretability}  
+XAI is still not fully reliable for medical decisions.
+
+\end{itemize}
+
+\vspace{0.15cm}
+
+\textbf{Final Insight:}  
+Need for robust, real-time, clinically validated healthcare AI systems.
+
+\end{frame}
+
+
+
+
+
+
+\section{Future Directions}
+
+\begin{frame}{Future Research Directions}
+
+\begin{itemize}
+
+\item \textbf{Edge AI \& Real-Time Systems}  
+Lightweight models for fast on-device prescription processing.
+
+\item \textbf{Federated Learning}  
+Privacy-preserving training without central medical data storage.
+
+\item \textbf{Improved Vision Encoders}  
+Better handwriting understanding using SigLIP / InternVL.
+
+\item \textbf{Advanced OCR Models}  
+Adoption of TrOCR, Donut for robust document extraction.
+
+\item \textbf{Multimodal Healthcare AI}  
+Integration of OCR, NLP, and clinical decision support systems.
+
+\item \textbf{Explainable AI Enhancement}  
+More reliable XAI using hybrid approaches (LIM, SHAP, CAM).
+
+\end{itemize}
+\end{frame}
+
+
+
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+\begin{itemize}
+
+\item \textbf{Overall Observation}  
+Multimodal OCR systems are effective for medical document understanding but still face real-world challenges.
+
+\item \textbf{Best Approaches}  
+Vision-language models with improved encoders (SigLIP, InternVL) and OCR models like DONUT and TrOCR perform better than traditional methods.
+
+\item \textbf{Strengths}  
+Good performance on structured data and strong automation capability.
+
+\item \textbf{Limitations}  
+Weak performance on noisy handwriting, limited datasets, and lack of clinical validation.
+
+\item \textbf{Final Remark}  
+Further improvements are required for reliable real-world healthcare deployment.
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+
+
+\section{Team Contribution}
+
+\begin{frame}{Team Contribution}
+\vspace{0.3cm}
+
+\small
+
+\begin{table}
+
+\centering
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabular}{|m{1.5cm}|m{1.5cm}|m{3.5cm}|m{3.5cm}|}
+
+\hline
+
+\rowcolor{medixPrimary}
+
+\color{white}\textbf{Team Member ID} &
+\color{white}\textbf{Papers Reviewed} &
+\color{white}\textbf{Report Contribution} &
+\color{white}\textbf{Presentation Contribution}
+
+\\
+
+\hline
+
+23201009 &
+7 Papers &
+Introduction, Problem Statement, Objectives, Methodology Literature Review &
+Prepared Intro, Methodology and Literature Review Slides
+
+\\
+
+\hline
+
+23201023 &
+7 Papers &
+Comparison, Research Gaps, Trends &
+Prepared Analysis and Comparison Slides
+
+\\
+
+\hline
+
+23201050 &
+7 Papers &
+Future Work, Conclusion, Discussion, References &
+Prepared Final Slides and Editing
+
+\\
+
+\hline
+
+\end{tabular}
+
+\end{table}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\section{References}
+
+\begin{frame}{References}
+
+\begin{thebibliography}{10}
+
+\bibitem{paper1}
+Mankash et al., "MIRAGE: Multimodal Identification and Recognition of Annotations in Indian General Prescriptions," arXiv, 2024.
+
+\bibitem{paper2}
+Daniela Gifua, ``AI-backed OCR in Healthcare,'' None, 2023.
+
+\bibitem{paper3}
+Shaik Sharjeel and Mohammad Ubaidulla Arif, ``AI-Based OCR System for Handwritten Medical Prescription Recognition and Interpretation,'' None, 2025.
+
+\bibitem{paper4}
+Hung Truong Thanh Nguyen et al., `` Evaluation of XAI: SHAP, LIME, and CAM '' Conference Paper, 2021.
+
+
+
+\end{thebibliography}
+
+\end{frame}
+
+
+
+
+\begin{frame}[plain]
+
+\begin{tikzpicture}[remember picture,overlay]
+
+\fill[medixPrimary]
+(current page.south west)
+rectangle
+(current page.north east);
+
+\fill[medixAccent,opacity=0.08]
+(current page.center)
+circle (3cm);
+
+\end{tikzpicture}
+
+\vspace{3cm}
+
+\centering
+
+{\color{white}\fontsize{34}{36}\selectfont\bfseries
+Thank You
+}
+
+\vspace{0.4cm}
+
+{\color{medixAccent}\Large
+Questions?
+}
+
+\end{frame}
+\end{document}
